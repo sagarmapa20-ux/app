@@ -1,6 +1,6 @@
 export const portfolioData = {
   personal: {
-    name: "PROFESSIONAL NAME",
+    name: "YOUR NAME",
     title: "Cloud Solution Architect",
     tagline: "18 Years of Cloud Excellence",
     description: "Results-driven Cloud Solution Architect with 18 years of extensive IT experience, specializing in designing and implementing cutting-edge cloud solutions. Proven track record in the banking and healthcare domains, adept at addressing complex challenges and delivering scalable, secure, and cost-effective solutions.",
