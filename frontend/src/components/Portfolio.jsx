@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { portfolioData } from '../data/mock';
 import '../styles/portfolio.css';
 import { 
@@ -14,7 +14,9 @@ import {
   ChevronDown,
   ExternalLink,
   Calendar,
-  Building
+  Building,
+  Star,
+  Quote
 } from 'lucide-react';
 
 const Portfolio = () => {
@@ -40,13 +42,21 @@ const Portfolio = () => {
   };
 
   const skillIcons = {
-    'Cloud Platforms': <Cloud className="w-6 h-6" />,
+    'Multi-Cloud Platforms': <Cloud className="w-6 h-6" />,
     'Architecture & Design': <Server className="w-6 h-6" />,
     'DevOps & Automation': <Code className="w-6 h-6" />,
     'Migration & Integration': <ExternalLink className="w-6 h-6" />,
     'Security & Compliance': <Shield className="w-6 h-6" />,
     'Leadership & Strategy': <Users className="w-6 h-6" />
   };
+
+  // Initialize name animation
+  useEffect(() => {
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+      heroTitle.classList.add('hero-title-animated');
+    }
+  }, []);
 
   return (
     <div className="portfolio-container">
@@ -57,13 +67,14 @@ const Portfolio = () => {
       <nav className="nav-header">
         <div className="container">
           <div className="nav-content">
-            <div className="header-logo">CA_PORTFOLIO</div>
+            <div className="header-logo">MCA_PORTFOLIO</div>
             <div className="nav-links">
               <a href="#home" className="nav-link">Home</a>
               <a href="#about" className="nav-link">About</a>
               <a href="#experience" className="nav-link">Experience</a>
               <a href="#skills" className="nav-link">Skills</a>
               <a href="#projects" className="nav-link">Projects</a>
+              <a href="#testimonials" className="nav-link">Testimonials</a>
               <a href="#contact" className="nav-link">Contact</a>
             </div>
           </div>
@@ -75,10 +86,10 @@ const Portfolio = () => {
         <div className="container">
           <div className="grid-container">
             <div className="hero-content">
-              <div className="label">CLOUD SOLUTION ARCHITECT</div>
+              <div className="label">MULTI-CLOUD ARCHITECT</div>
               <h1 className="hero-title">{portfolioData.personal.name}</h1>
-              <p className="text-big">{portfolioData.personal.tagline}</p>
-              <p className="text-body" style={{ maxWidth: '600px', marginTop: '2rem' }}>
+              <p className="text-big hero-tagline">{portfolioData.personal.tagline}</p>
+              <p className="text-body hero-description" style={{ maxWidth: '600px', marginTop: '2rem' }}>
                 {portfolioData.personal.description}
               </p>
               <div className="hero-actions" style={{ marginTop: '3rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -95,13 +106,13 @@ const Portfolio = () => {
         <div className="container">
           <div className="grid-container">
             <div className="label">ABOUT ME</div>
-            <h2 className="title-big">18 Years of Cloud Excellence</h2>
+            <h2 className="title-big">18 Years of Multi-Cloud Excellence</h2>
             
             <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '3rem', marginTop: '3rem', alignItems: 'start' }}>
               <div>
                 <p className="text-body" style={{ marginBottom: '1.5rem' }}>
-                  As a results-driven Cloud Solution Architect with 18 years of extensive IT experience, 
-                  I specialize in designing and implementing cutting-edge cloud solutions that drive business transformation.
+                  As a results-driven Multi-Cloud Architect with 18 years of extensive IT experience, 
+                  I specialize in designing and implementing cutting-edge multi-cloud solutions that drive business transformation.
                 </p>
                 <p className="text-body" style={{ marginBottom: '1.5rem' }}>
                   My expertise spans across major cloud platforms including AWS, Azure, and Google Cloud, 
@@ -110,7 +121,7 @@ const Portfolio = () => {
                 </p>
                 <p className="text-body">
                   Having managed diverse global clientele from the US, UK, and India, I focus on driving 
-                  innovation and achieving optimal business outcomes through strategic cloud adoption and digital transformation.
+                  innovation and achieving optimal business outcomes through strategic multi-cloud adoption and digital transformation.
                 </p>
               </div>
               
@@ -128,8 +139,8 @@ const Portfolio = () => {
                 ))}
                 
                 <h3 className="label" style={{ marginTop: '2rem', marginBottom: '1rem' }}>CERTIFICATIONS</h3>
-                <div className="flex items-center gap-2 mb-2">
-                  <Award className="w-5 h-5 text-green-500" />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <Award className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
                   <p className="text-body" style={{ fontSize: '14px' }}>40+ Professional Certifications</p>
                 </div>
                 <p className="text-body" style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
@@ -221,9 +232,11 @@ const Portfolio = () => {
                         key={skillIndex} 
                         className="label-small" 
                         style={{ 
-                          background: 'var(--color-background)', 
+                          background: 'var(--blue-50)', 
+                          color: 'var(--accent-primary)',
                           padding: '0.5rem 0.75rem', 
-                          border: '1px solid var(--border-light)',
+                          border: '1px solid var(--accent-light)',
+                          borderRadius: '4px',
                           transition: 'all 0.2s ease'
                         }}
                         onMouseEnter={(e) => {
@@ -231,8 +244,8 @@ const Portfolio = () => {
                           e.target.style.color = 'var(--accent-foreground)';
                         }}
                         onMouseLeave={(e) => {
-                          e.target.style.background = 'var(--color-background)';
-                          e.target.style.color = 'var(--text-primary)';
+                          e.target.style.background = 'var(--blue-50)';
+                          e.target.style.color = 'var(--accent-primary)';
                         }}
                       >
                         {skill}
@@ -268,7 +281,8 @@ const Portfolio = () => {
                       </p>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <span className={`label-small ${project.status === 'Completed' ? 'text-green-600' : 'text-blue-600'}`}>
+                      <span className={`label-small ${project.status === 'Completed' ? '' : ''}`} 
+                            style={{ color: project.status === 'Completed' ? 'var(--color-success)' : 'var(--accent-primary)' }}>
                         {project.status}
                       </span>
                       <ChevronDown className={`w-4 h-4 transition-transform ${activeProject === project.id ? 'rotate-180' : ''}`} />
@@ -287,9 +301,10 @@ const Portfolio = () => {
                           key={index} 
                           className="label-small" 
                           style={{ 
-                            background: 'var(--text-primary)', 
-                            color: 'var(--bg-white)', 
-                            padding: '0.25rem 0.5rem'
+                            background: 'var(--accent-primary)', 
+                            color: 'var(--accent-foreground)', 
+                            padding: '0.25rem 0.5rem',
+                            borderRadius: '4px'
                           }}
                         >
                           {tech}
@@ -331,6 +346,45 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section id="testimonials" className="section">
+        <div className="container">
+          <div className="grid-container">
+            <div className="label">CLIENT FEEDBACK</div>
+            <h2 className="title-big">Testimonials</h2>
+            
+            <div className="testimonials-grid">
+              {portfolioData.testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="testimonial-card">
+                  <div className="testimonial-header">
+                    <div className="testimonial-avatar">
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div className="testimonial-info">
+                      <h4>{testimonial.name}</h4>
+                      <p>{testimonial.position}</p>
+                      <p style={{ color: 'var(--accent-primary)', fontSize: '12px' }}>{testimonial.company}</p>
+                    </div>
+                  </div>
+                  
+                  <Quote className="w-6 h-6" style={{ color: 'var(--accent-primary)', marginBottom: '1rem' }} />
+                  
+                  <p className="testimonial-text">
+                    "{testimonial.testimonial}"
+                  </p>
+                  
+                  <div className="testimonial-rating">
+                    {[...Array(testimonial.rating)].map((_, index) => (
+                      <Star key={index} className="w-4 h-4 star" fill="currentColor" />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="section">
         <div className="container">
@@ -341,21 +395,21 @@ const Portfolio = () => {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginTop: '3rem' }}>
               <div>
                 <p className="text-body" style={{ marginBottom: '2rem' }}>
-                  Ready to discuss your next cloud transformation project? 
-                  Let's explore how we can architect scalable, secure solutions for your business.
+                  Ready to discuss your next multi-cloud transformation project? 
+                  Let's explore how we can architect scalable, secure solutions across AWS, Azure, and GCP for your business.
                 </p>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <Mail className="w-5 h-5" />
+                    <Mail className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
                     <span className="text-body">{portfolioData.personal.email}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <Phone className="w-5 h-5" />
+                    <Phone className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
                     <span className="text-body">{portfolioData.personal.phone}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <MapPin className="w-5 h-5" />
+                    <MapPin className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
                     <span className="text-body">{portfolioData.personal.location}</span>
                   </div>
                 </div>
@@ -427,7 +481,7 @@ const Portfolio = () => {
       <footer className="footer">
         <div className="container">
           <p className="text-body">
-            © 2024 Cloud Solution Architect. Designed with precision and passion for cloud excellence.
+            © 2024 Multi-Cloud Architect. Designed with precision and passion for multi-cloud excellence.
           </p>
         </div>
       </footer>

@@ -1,10 +1,10 @@
 export const portfolioData = {
   personal: {
     name: "YOUR NAME",
-    title: "Cloud Solution Architect",
-    tagline: "18 Years of Cloud Excellence",
-    description: "Results-driven Cloud Solution Architect with 18 years of extensive IT experience, specializing in designing and implementing cutting-edge cloud solutions. Proven track record in the banking and healthcare domains, adept at addressing complex challenges and delivering scalable, secure, and cost-effective solutions.",
-    email: "contact@cloudarchitect.com",
+    title: "Multi-Cloud Architect",
+    tagline: "18 Years of Multi-Cloud Excellence",
+    description: "Results-driven Multi-Cloud Architect with 18 years of extensive IT experience, specializing in designing and implementing cutting-edge multi-cloud solutions. Proven track record in the banking and healthcare domains, adept at addressing complex challenges and delivering scalable, secure, and cost-effective solutions across AWS, Azure, and Google Cloud platforms.",
+    email: "contact@multicloudarchitect.com",
     phone: "+1 (555) 123-4567",
     location: "Global Remote"
   },
@@ -66,8 +66,8 @@ export const portfolioData = {
 
   skills: [
     {
-      category: "Cloud Platforms",
-      items: ["AWS", "Azure", "Google Cloud Platform", "Multi-Cloud Architecture"]
+      category: "Multi-Cloud Platforms",
+      items: ["AWS", "Azure", "Google Cloud Platform", "Multi-Cloud Architecture", "Hybrid Cloud"]
     },
     {
       category: "Architecture & Design",
@@ -147,6 +147,45 @@ export const portfolioData = {
       ],
       timeline: "10 months",
       status: "In Progress"
+    }
+  ],
+
+  testimonials: [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      position: "CTO, Fortune 500 Banking Institution",
+      company: "Global Financial Services",
+      testimonial: "The multi-cloud architecture designed by this team transformed our entire infrastructure. The Azure migration was seamless with zero downtime, and the cost savings of 35% exceeded our expectations. Their expertise in managing complex enterprise environments is unmatched.",
+      rating: 5,
+      image: "/api/placeholder/80/80"
+    },
+    {
+      id: 2,
+      name: "Dr. Michael Chen",
+      position: "VP of Technology",
+      company: "US Healthcare Provider",
+      testimonial: "Working with this multi-cloud architect on our HIPAA-compliant platform was exceptional. They delivered a solution that serves 50+ hospitals while maintaining 100% compliance. The 60% improvement in processing time has revolutionized our patient care delivery.",
+      rating: 5,
+      image: "/api/placeholder/80/80"
+    },
+    {
+      id: 3,
+      name: "Raj Patel", 
+      position: "Director of Cloud Operations",
+      company: "Reliance Jio",
+      testimonial: "The cost optimization framework they developed saved us 40% across our entire cloud portfolio. Their ability to work across AWS, Azure, and GCP simultaneously while maintaining security and performance standards is remarkable. A true multi-cloud expert.",
+      rating: 5,
+      image: "/api/placeholder/80/80"
+    },
+    {
+      id: 4,
+      name: "Lisa Anderson",
+      position: "Senior VP of Infrastructure", 
+      company: "Global Enterprise Corporation",
+      testimonial: "The hybrid cloud network design exceeded our requirements for connecting our on-premises infrastructure with multiple cloud providers. The zero-trust security model and 45% latency reduction have significantly improved our global operations.",
+      rating: 5,
+      image: "/api/placeholder/80/80"
     }
   ],
 
