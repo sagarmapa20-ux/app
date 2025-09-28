@@ -1,6 +1,6 @@
 export const portfolioData = {
   personal: {
-    name: "YOUR NAME",
+    name: "Sagar Pawar",
     title: "Multi-Cloud Architect",
     tagline: "18 Years of Multi-Cloud Excellence",
     description: "Results-driven Multi-Cloud Architect with 18 years of extensive IT experience, specializing in designing and implementing cutting-edge multi-cloud solutions. Proven track record in the banking and healthcare domains, adept at addressing complex challenges and delivering scalable, secure, and cost-effective solutions across AWS, Azure, and Google Cloud platforms.",
